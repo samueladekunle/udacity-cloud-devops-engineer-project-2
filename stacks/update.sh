@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# This script is used to launch a cfn stack on aws using
+# the following arguments:
+#   --stack-name (command line argument 1)
+#   --template-body (command line arguement 2)
+#   --parameters (command line argument 3)
+
+
+aws cloudformation update-stack \
+--stack-name $1 \
+--template-body file://$2 \
+--parameters file://$3 \
+--region=us-east-1 \
+--capabilities "CAPABILITY_IAM" "CAPABILITY_NAMED_IAM" \
+--profile=alx
